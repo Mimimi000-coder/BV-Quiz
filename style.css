@@ -45,6 +45,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0; padding: 20px;
     display: flex; justify-content: center;
+    align-items: center;⁠min-height: 100vh;
+
     transition: all 0.4s ease;
 }
 

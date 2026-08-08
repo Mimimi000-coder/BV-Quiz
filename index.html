@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    meta name="description" content="Библейская викторина-квест для баптистов. Проверяй знания, соревнуйся на арене и предлагай свои вопросы!">
+    <meta name="description" content="Библейская викторина-квест для баптистов. Проверяй знания, соревнуйся на арене и предлагай свои вопросы!">
 <meta name="keywords" content="Библейская викторина, БВ, квест, викторина для баптистов, изучение Библии, арена, мультиплеер">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +37,7 @@
         <!-- Выбор темы -->
          <!-- Кнопка вызова админки -->
  <button class="btn btn-secondary" id="btnAdminToggle" style="margin-top: 10px; opacity: 0.7;">Панель администратора</button>
+<button id="btnClearAll" class="admin-btn-danger">Удалить все вопросы сезона</button>
 
  <!-- Блок Админ-панели -->
  <div id="adminPanel" class="form-card hidden" style="margin-top: 15px; border: 2px dashed #d4a373;">
@@ -56,12 +57,13 @@
                 <option value="theme-blue">Глубокая синяя</option>
             </select>
         </div>
-    </div>
-    <!-- Счетчик игроков на Арене -->
+        <!-- Счетчик игроков на Арене -->
  <div id="arenaStats" style="margin-top: 15px; font-size: 14px; opacity: 0.8;">
  <p>Игроков онлайн: <span id="playerCount">1</span></p>
  </div>
 
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

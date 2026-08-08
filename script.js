@@ -1,3 +1,13 @@
+const firebaseConfig = {
+apiKey: "AIzaSyDLzXhkrKVsvdhyBanCyg0zWtS_BqjL4nM",
+authDomain: "bv-quiz.firebaseapp.com",
+projectId: "bv-quiz",
+storageBucket: "bv-quiz.firebasestorage.app",
+messagingSenderId: "446529941972",
+appId: "1:446529941972:web:fdf20dc74b1b34344fe641"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 // 1. Переключение тем
 const themeSelect = document.getElementById('themeSelect');
 const pageBody = document.body;
@@ -31,7 +41,7 @@ btnAddQuestion.addEventListener('click', function() {
 // Показ админ-панели с паролем
 btnAdminToggle.addEventListener('click', function() {
  // Установи здесь свой пароль!
- const secretCode = "1234"; 
+ const secretCode = "MiMiMi000"; 
  const input = prompt("Введите код администратора:");
  
  if (input === secretCode) {
@@ -121,3 +131,32 @@ window.approveQuestion = function(id) {
  renderAdminPanel();
  }
 };
+// Находим кнопку очистки
+const btnClearAll = document.getElementById('btnClearAll');
+
+// Вешаем обработчик клика
+if (btnClearAll) {
+ btnClearAll.addEventListener('click', async () => {
+ const confirmDelete = confirm("Вы точно хотите удалить ВСЕ вопросы для нового сезона?");
+ 
+ if (confirmDelete) {
+ try {
+ const snapshot = await db.collection('questions').get();
+ const batch = db.batch();
+ 
+ snapshot.docs.forEach(doc => {
+ batch.delete(doc.ref);
+ });
+
+ await batch.commit();
+ alert("Все вопросы успешно удалены! Можно начинать новый сезон.");
+ 
+ // Если у тебя есть функция обновления списка на экране, вызови её тут
+ // loadQuestions(); 
+ } catch (error) {
+ console.error("Ошибка при удалении: ", error);
+ alert("Не удалось удалить вопросы: " + error.message);
+ }
+ }
+ });
+}
