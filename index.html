@@ -1,69 +1,86 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta name="description" content="Библейская викторина-квест для баптистов. Проверяй знания, соревнуйся на арене и предлагай свои вопросы!">
-<meta name="keywords" content="Библейская викторина, БВ, квест, викторина для баптистов, изучение Библии, арена, мультиплеер">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Библейская Викторина</title>
-    <link rel="stylesheet" href="style.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Библейская Викторина</title>
+ <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>БВ • Библейская викторина</h1>
-        <p class="subtitle">Тренажер и Арена</p>
+ <div class="container">
+ <h1>БВ • Библейская викторина</h1>
+ <p class="subtitle">Тренажер и Арена</p>
 
-        <!-- Главное меню кнопок -->
-        <div class="menu-buttons">
-            <button class="btn btn-primary" id="btnArena">Арена</button>
-            <button class="btn btn-secondary" id="btnTrainer">Тренажёр</button>
-            <button class="btn btn-secondary" id="btnAddQuestion">Свой вопрос</button>
-        </div>
+ <!-- Главное меню кнопок -->
+ <div class="menu-buttons">
+ <button class="btn btn-primary" id="btnArena">Арена</button>
+ <button class="btn btn-secondary" id="btnTrainer">Тренажёр</button>
+ <button class="btn btn-secondary" id="btnAddQuestion">Свой вопрос</button>
+ </div>
 
-        <!-- Скрытый блок: Форма добавления вопроса -->
-        <div id="addQuestionForm" class="form-card hidden">
-            <h3>Предложить вопрос</h3>
-            
-            <input type="text" id="qText" placeholder="Введите текст вопроса...">
-            <input type="text" id="qAns1" placeholder="Вариант 1 (Правильный)">
-            <input type="text" id="qAns2" placeholder="Вариант 2">
-            <input type="text" id="qAns3" placeholder="Вариант 3">
-            <input type="text" id="qAns4" placeholder="Вариант 4">
+ <!-- Игровой блок Тренажера -->
+ <div id="trainerBlock" class="form-card hidden">
+ <div class="quiz-header">
+ <span id="trainerProgress">Вопрос 1</span>
+ <button id="btnExitTrainer" class="btn-icon">✕</button>
+ </div>
+ <h3 id="quizQuestionText" class="quiz-question">Загрузка вопроса...</h3>
+ <div id="quizAnswersGrid" class="answers-grid">
+ <!-- Кнопки ответов будут создаваться автоматически -->
+ </div>
+ <div id="quizFeedback" class="status-msg"></div>
+ <button id="btnNextQuestion" class="btn btn-primary hidden" style="margin-top: 15px;">Следующий вопрос →</button>
+ </div>
 
-            <button class="btn btn-success" id="btnSubmitQuestion">Отправить на проверку</button>
-            <p id="formStatus" class="status-msg"></p>
-        </div>
+ <!-- Скрытый блок: Форма добавления вопроса -->
+ <div id="addQuestionForm" class="form-card hidden">
+ <h3>Предложить вопрос</h3>
+ <input type="text" id="qText" placeholder="Введите текст вопроса...">
+ <input type="text" id="qAns1" placeholder="Вариант 1 (Правильный)">
+ <input type="text" id="qAns2" placeholder="Вариант 2">
+ <input type="text" id="qAns3" placeholder="Вариант 3">
+ <input type="text" id="qAns4" placeholder="Вариант 4">
+ <button class="btn btn-success" id="btnSubmitQuestion">Отправить на проверку</button>
+ <p id="formStatus" class="status-msg"></p>
+ </div>
 
-        <!-- Выбор темы -->
-         <!-- Кнопка вызова админки -->
- <button class="btn btn-secondary" id="btnAdminToggle" style="margin-top: 10px; opacity: 0.7;">Панель администратора</button>
-<button id="btnClearAll" class="admin-btn-danger">Удалить все вопросы сезона</button>
+ <!-- Кнопка вызова админки -->
+ <div style="margin-top: 15px;">
+ <button class="btn btn-secondary" id="btnAdminToggle" style="opacity: 0.8;">Панель администратора</button>
+ </div>
 
  <!-- Блок Админ-панели -->
- <div id="adminPanel" class="form-card hidden" style="margin-top: 15px; border: 2px dashed #d4a373;">
+ <div id="adminPanel" class="form-card hidden" style="margin-top: 15px; border: 2px dashed #d4a373; padding: 15px;">
  <h3>Проверка предложенных вопросов</h3>
  <div id="pendingQuestionsList">
- <p style="font-size: 13px; color: #666;">Пока нет новых вопросов на проверку...</p>
+ <p style="font-size: 13px; color: #666;">Загрузка вопросов...</p>
  </div>
+ <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">
+ <button id="btnClearAll" class="btn btn-danger">Удалить все вопросы сезона</button>
  </div>
-        <div class="theme-selector">
-            <label for="themeSelect">Тема оформления:</label>
-            <select id="themeSelect">
-                <option value="theme-green">Темно-зеленая (Оригинал)</option>
-                <option value="theme-black">Строгая черная</option>
-                <option value="theme-white">Чистая белая</option>
-                <option value="theme-beige">Бежево-белая</option>
-                <option value="theme-pink">Приятно розовая</option>
-                <option value="theme-blue">Глубокая синяя</option>
-            </select>
-        </div>
-        <!-- Счетчик игроков на Арене -->
+
+ <!-- Выбор темы -->
+ <div class="theme-selector" style="margin-top: 20px;">
+ <label for="themeSelect">Тема оформления:</label>
+ <select id="themeSelect">
+ <option value="theme-green">Темно-зеленая (Оригинал)</option>
+ <option value="theme-black">Строгая черная</option>
+ <option value="theme-white">Чистая белая</option>
+ <option value="theme-beige">Бежево-белая</option>
+ <option value="theme-pink">Приятно розовая</option>
+ <option value="theme-blue">Глубокая синяя</option>
+ </select>
+ </div>
+
+ <!-- Счетчик игроков на Арене -->
  <div id="arenaStats" style="margin-top: 15px; font-size: 14px; opacity: 0.8;">
  <p>Игроков онлайн: <span id="playerCount">1</span></p>
  </div>
+ </div>
 
-    </div>
-    
-    <script src="script.js"></script>
+ <!-- Подключение Firebase -->
+ <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+ <script src="script.js"></script>
 </body>
 </html>

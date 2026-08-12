@@ -1,140 +1,291 @@
+/* Переменные по умолчанию (Зеленая ориг) */
 :root {
-    --bg-color: #0b1f15;
-    --card-bg: #e4ddc8;
-    --text-color: #333333;
-    --heading-color: #000000;
-    --btn-primary: #d4a373;
-    --btn-secondary: #224231;
-    --btn-text-sec: #ffffff;
-    --select-bg: #3b6b50;
-    --select-text: #ffffff;
+ --bg-color: #0b1f15;
+ --card-bg: #e4ddc8;
+ --text-color: #333333;
+ --heading-color: #000000;
+ --btn-primary: #d4a373;
+ --btn-secondary: #224231;
+ --btn-text-sec: #ffffff;
+ --select-bg: #3b6b50;
+ --select-text: #ffffff;
 }
 
-.theme-black {
-    --bg-color: #121212; --card-bg: #2a2a2a; --text-color: #e0e0e0;
-    --heading-color: #ffffff; --btn-primary: #e5a93c; --btn-secondary: #444444;
-    --btn-text-sec: #ffffff; --select-bg: #444444; --select-text: #ffffff;
+/* Настройки тем */
+body.theme-black {
+ --bg-color: #121212;
+ --card-bg: #2a2a2a;
+ --text-color: #e0e0e0;
+ --heading-color: #ffffff;
+ --btn-primary: #e5a93c;
+ --btn-secondary: #444444;
+ --btn-text-sec: #ffffff;
+ --select-bg: #444444;
+ --select-text: #ffffff;
 }
 
-.theme-white {
-    --bg-color: #e5e5e5; --card-bg: #ffffff; --text-color: #333333;
-    --heading-color: #111111; --btn-primary: #e5a93c; --btn-secondary: #e0e0e0;
-    --btn-text-sec: #333333; --select-bg: #dddddd; --select-text: #000000;
+body.theme-white {
+ --bg-color: #e5e5e5;
+ --card-bg: #ffffff;
+ --text-color: #333333;
+ --heading-color: #111111;
+ --btn-primary: #e5a93c;
+ --btn-secondary: #e0e0e0;
+ --btn-text-sec: #333333;
+ --select-bg: #dddddd;
+ --select-text: #000000;
 }
 
-.theme-beige {
-    --bg-color: #f4f1ea; --card-bg: #ffffff; --text-color: #4a4a4a;
-    --heading-color: #2b7042; --btn-primary: #d4a373; --btn-secondary: #e4ddc8;
-    --btn-text-sec: #333333; --select-bg: #e4ddc8; --select-text: #333333;
+body.theme-beige {
+ --bg-color: #f4f1ea;
+ --card-bg: #ffffff;
+ --text-color: #4a4a4a;
+ --heading-color: #2b7042;
+ --btn-primary: #d4a373;
+ --btn-secondary: #e4ddc8;
+ --btn-text-sec: #333333;
+ --select-bg: #e4ddc8;
+ --select-text: #333333;
 }
 
-.theme-pink {
-    --bg-color: #ffe4e1; --card-bg: #fff0f5; --text-color: #5c3a41;
-    --heading-color: #8a4a58; --btn-primary: #ffb6c1; --btn-secondary: #d8a7b1;
-    --btn-text-sec: #ffffff; --select-bg: #ffb6c1; --select-text: #5c3a41;
+body.theme-pink {
+ --bg-color: #fce4ec;
+ --card-bg: #ffffff;
+ --text-color: #880e4f;
+ --heading-color: #ad1457;
+ --btn-primary: #f48fb1;
+ --btn-secondary: #f8bbd0;
+ --btn-text-sec: #880e4f;
+ --select-bg: #f8bbd0;
+ --select-text: #880e4f;
 }
 
-.theme-blue {
-    --bg-color: #0a192f; --card-bg: #172a45; --text-color: #a8b2d1;
-    --heading-color: #ccd6f6; --btn-primary: #64ffda; --btn-secondary: #233554;
-    --btn-text-sec: #ccd6f6; --select-bg: #233554; --select-text: #ccd6f6;
+body.theme-blue {
+ --bg-color: #0a192f;
+ --card-bg: #172a45;
+ --text-color: #8892b0;
+ --heading-color: #ccd6f6;
+ --btn-primary: #64ffda;
+ --btn-secondary: #233554;
+ --btn-text-sec: #ccd6f6;
+ --select-bg: #233554;
+ --select-text: #ccd6f6;
 }
 
+/* Общие стили для body */
 body {
-    background-color: var(--bg-color);
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 20px;
-    display: flex; justify-content: center;
-    align-items: center;⁠min-height: 100vh;
-
-    transition: all 0.4s ease;
+ background-color: var(--bg-color);
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 20px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ min-height: 100vh;
+ transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Карточка приложения */
 .container {
-    background-color: var(--card-bg);
-    color: var(--text-color);
-    border-radius: 20px;
-    padding: 25px;
-    text-align: center;
-    width: 100%; max-width: 400px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+ background-color: var(--card-bg);
+ color: var(--text-color);
+ border-radius: 20px;
+ padding: 25px;
+ text-align: center;
+ width: 100%;
+ max-width: 420px;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+ transition: background-color 0.4s ease;
 }
 
-h1 { color: var(--heading-color); font-size: 22px; margin-bottom: 5px; }
-.subtitle { margin-top: 0; font-size: 14px; opacity: 0.8; }
-
-/* Кнопки меню */
-.menu-buttons {
-    display: flex; flex-direction: column; gap: 10px; margin: 20px 0;
+h1, h3 {
+ color: var(--heading-color);
+ margin-top: 0;
 }
 
+.subtitle {
+ font-size: 14px;
+ opacity: 0.8;
+ margin-bottom: 20px;
+}
+
+/* Кнопки */
 .btn {
-    padding: 12px 20px;
-    border: none; border-radius: 25px;
-    font-size: 16px; font-weight: bold;
-    cursor: pointer; transition: transform 0.1s ease;
+ width: 100%;
+ padding: 12px;
+ margin: 6px 0;
+ border: none;
+ border-radius: 10px;
+ font-size: 16px;
+ font-weight: bold;
+ cursor: pointer;
+ transition: opacity 0.2s ease, transform 0.1s ease;
 }
 
-.btn:active { transform: scale(0.98); }
+.btn:active {
+ transform: scale(0.98);
+}
 
-.btn-primary { background-color: var(--btn-primary); color: #000; }
-.btn-secondary { background-color: var(--btn-secondary); color: var(--btn-text-sec); }
-.btn-success { background-color: #4CAF50; color: white; width: 100%; margin-top: 10px; }
+.btn-primary {
+ background-color: var(--btn-primary);
+ color: #000;
+}
 
-/* Форма */
-.hidden { display: none; }
+.btn-secondary {
+ background-color: var(--btn-secondary);
+ color: var(--btn-text-sec);
+}
 
+.btn-success {
+ background-color: #2e7d32;
+ color: #fff;
+}
+
+.btn-danger {
+ background-color: #c62828;
+ color: #fff;
+}
+
+/* Формы и игровые блоки */
 .form-card {
-    background: rgba(0,0,0,0.05);
-    padding: 15px; border-radius: 15px; margin-bottom: 20px;
+ background: rgba(0,0,0,0.05);
+ border-radius: 12px;
+ padding: 15px;
+ margin-top: 15px;
+ text-align: left;
 }
 
 .form-card input {
-    width: 90%; padding: 10px; margin: 5px 0;
-    border: 1px solid #ccc; border-radius: 8px; font-size: 14px;
+ width: 100%;
+ padding: 10px;
+ margin: 5px 0;
+ border: 1px solid #ccc;
+ border-radius: 6px;
+ box-sizing: border-box;
 }
 
-.status-msg { font-weight: bold; color: #2e7d32; margin-top: 10px; }
+.hidden {
+ display: none !important;
+}
 
-.theme-selector { margin-top: 20px; font-size: 14px; }
-select {
-    background-color: var(--select-bg); color: var(--select-text);
-    border: none; padding: 10px; border-radius: 10px;
-    width: 100%; margin-top: 5px; cursor: pointer;
-}/* Стили для карточек вопросов в Админке */
+.status-msg {
+ font-size: 14px;
+ font-weight: bold;
+ margin-top: 8px;
+ text-align: center;
+}
+
+/* Тренажер и ответы */
+.quiz-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ font-size: 13px;
+ font-weight: bold;
+ opacity: 0.8;
+ margin-bottom: 10px;
+}
+
+.btn-icon {
+ background: none;
+ border: none;
+ font-size: 16px;
+ cursor: pointer;
+ color: inherit;
+}
+
+.quiz-question {
+ font-size: 16px;
+ line-height: 1.4;
+ margin-bottom: 15px;
+ text-align: center;
+}
+
+.answers-grid {
+ display: grid;
+ grid-template-columns: 1fr;
+ gap: 8px;
+}
+
+.answer-btn {
+ padding: 12px;
+ border: 2px solid rgba(0,0,0,0.1);
+ border-radius: 8px;
+ background: var(--btn-secondary);
+ color: var(--btn-text-sec);
+ font-size: 14px;
+ font-weight: 600;
+ cursor: pointer;
+ text-align: center;
+ transition: all 0.2s;
+}
+
+.answer-btn:hover:not(:disabled) {
+ opacity: 0.9;
+}
+
+.answer-btn.correct {
+ background-color: #2e7d32 !important;
+ color: #ffffff !important;
+ border-color: #1b5e20 !important;
+}
+
+.answer-btn.wrong {
+ background-color: #c62828 !important;
+ color: #ffffff !important;
+ border-color: #b71c1c !important;
+}
+
+/* Селектор тем */
+.theme-selector select {
+ width: 100%;
+ padding: 10px;
+ border-radius: 8px;
+ border: none;
+ background-color: var(--select-bg);
+ color: var(--select-text);
+ font-size: 14px;
+ margin-top: 5px;
+ cursor: pointer;
+}
+
+/* Админка */
 .admin-q-card {
-background: rgba(255, 255, 255, 0.6);
-border-radius: 10px;
-padding: 10px;
-margin-bottom: 10px;
-text-align: left;
-font-size: 14px;
-color: #000;
+ background: rgba(255, 255, 255, 0.5);
+ padding: 10px;
+ border-radius: 8px;
+ margin-bottom: 10px;
+ border-left: 4px solid var(--btn-primary);
 }
 
-.admin-q-card strong {
-display: block;
-margin-bottom: 5px;
+.admin-q-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ cursor: pointer;
+ font-weight: bold;
+}
+
+.admin-q-details {
+ margin-top: 10px;
+ padding-top: 10px;
+ border-top: 1px dashed #ccc;
+ font-size: 13px;
+}
+
+.admin-answers-list {
+ margin: 5px 0;
+ padding-left: 20px;
 }
 
 .admin-controls {
-display: flex;
-gap: 5px;
-margin-top: 8px;
+ display: flex;
+ gap: 8px;
+ margin-top: 10px;
+ align-items: center;
 }
 
 .admin-controls select {
-margin: 0;
-padding: 5px;
-font-size: 12px;
-}
-
-.btn-approve {
-background-color: #2e7d32;
-color: white;
-border: none;
-border-radius: 5px;
-padding: 5px 10px;
-cursor: pointer;
-font-weight: bold;
+ padding: 5px;
+ border-radius: 4px;
 }
