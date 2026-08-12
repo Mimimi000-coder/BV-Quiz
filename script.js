@@ -160,7 +160,7 @@ if (btnAddQuestion && addQuestionForm) {
 // 6. Админ-панель (Защита паролем)
 if (btnAdminToggle && adminPanel) {
  btnAdminToggle.addEventListener('click', () => {
- const secretCode = "MiMiMi000";
+ const secretCode = "MiMiMi123";
  const input = prompt("Введите код администратора:");
  
  if (input === secretCode) {
